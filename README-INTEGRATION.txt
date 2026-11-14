@@ -32,3 +32,10 @@ Connect:
 - Logout endpoint through `window.OYAGO_AUTH.logoutUrl` if using cookie sessions.
 
 Do not rely on hiding dashboard links in the browser for security. Enforce authentication and passenger/driver role authorization on the server. Serve over HTTPS and use secure, HttpOnly, SameSite cookies or your application's established secure token flow.
+
+
+## Local demo authentication added
+When no `window.OYAGO_AUTH` endpoints are configured, sign-up and sign-in use browser localStorage/sessionStorage so the prototype can be clicked through without a backend. Passenger and driver accounts are separated by role; each role is redirected to its matching dashboard, and dashboards redirect unauthenticated or wrong-role sessions back to sign-in. This is a visual/demo convenience only: credentials are stored in browser storage and are NOT secure. Do not use this mode for real users or production. Replace it with server-side password hashing, secure HttpOnly cookies, role authorization, CSRF protection and rate limiting.
+
+## Keke visuals and SEO
+The yellow-and-black OyaGo tricycle SVG from the account chooser is reused in both role dashboards. The homepage already includes the OyaGo keke artwork. Page-specific title, meta description, keywords and social preview metadata have been added. Add the final production domain to canonical URLs and submit the sitemap/robots configuration before launch.
